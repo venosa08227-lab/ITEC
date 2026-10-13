@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Type or Fall</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Menu -->
+    <div id="mainMenu" class="screen">
+
+        <h1>TYPE OR FALL</h1>
+
+        <div class="menuRow">
+
+            <!-- Character -->
+            <button id="characterButton" class="menuButton">
+                ← CHARACTER
+            </button>
+
+            <!-- Name -->
+            <input
+                id="playerName"
+                type="text"
+                placeholder="NAME"
+                maxlength="15"
+                autocomplete="off"
+            >
+
+            <!-- Play -->
+            <button id="playButton" class="menuButton">
+                PLAY →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Character Selection -->
+    <div id="characterScreen" class="screen hidden">
+
+        <h2>SELECT YOUR CHARACTER</h2>
+
+        <div class="characters">
+
+            <button class="character" data-character="character1">
+                🟣
+                <span>Character 1</span>
+            </button>
+
+            <button class="character" data-character="character2">
+                🔵
+                <span>Character 2</span>
+            </button>
+
+            <button class="character" data-character="character3">
+                🟢
+                <span>Character 3</span>
+            </button>
+
+        </div>
+
+        <p id="selectedCharacterText">
+            Select a character
+        </p>
+
+        <button id="backButton">
+            BACK
+        </button>
+
+    </div>
+
+
+    <!-- Game Screen -->
+<div id="gameScreen" class="gameScreen hidden">
+
+    <!-- Top HUD -->
+    <div class="gameHUD">
+
+        <div class="leftHUD">
+
+            <div class="hpArea">
+                <span class="hpText">HP</span>
+
+                <div id="hpBar" class="hpBar" role="progressbar" aria-label="HP 3 / 3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="3">
+                    <div id="hpFill"></div>
+                </div>
+            </div>
+
+            <span id="levelDisplay">
+                Lv. 1
+            </span>
+
+        </div>
+
+
+        <!-- Settings -->
+        <button id="settingsButton" class="settingsButton" type="button" aria-label="Settings" aria-expanded="false" aria-controls="settingsPanel">
+            ⚙
+        </button>
+
+    </div>
+
+
+    <!-- Settings Menu -->
+    <div id="settingsPanel" class="settingsPanel hidden" aria-label="Settings">
+
+        <h3>SETTINGS</h3>
+
+        <button id="soundButton" type="button" aria-pressed="true">
+            🔊 SOUND ON
+        </button>
+
+        <button id="homeButton" type="button">
+            🏠 HOME
+        </button>
+
+    </div>
+
+
+    <!-- Game Area -->
+    <div id="gameArea">
+
+        <!-- Player -->
+        <div id="playerCharacter">
+
+            <div id="playerNameDisplay">
+                PLAYER
+            </div>
+
+            <div class="temporaryPlayer">
+                🟣
+            </div>
+
+        </div>
+
+
+        <!-- Enemies will appear here -->
+<div id="enemyContainer"></div>
+    </div>
+
+
+    <!-- Typing Area -->
+    <div class="typingArea">
+        <input
+            id="typingInput"
+            type="text"
+            placeholder="Type the word..."
+            autocomplete="off"
+        >
+
+    </div>
+
+    <section id="gameOverPanel" class="gameOverPanel hidden" role="alertdialog" aria-labelledby="gameOverTitle">
+        <h2 id="gameOverTitle">GAME OVER</h2>
+        <p>You ran out of HP.</p>
+        <button id="restartButton" type="button">RESTART</button>
+    </section>
+
+</div>
+
+
+    <script src="game.js"></script>
+
+</body>
+</html>
